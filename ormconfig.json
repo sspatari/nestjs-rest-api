@@ -1,0 +1,8 @@
+{
+    "type": "mongodb",
+    "url": "mongodb://localhost:27017/books?readPreference=primary",
+    "synchronize": true,
+    "logging": true,
+    "useNewUrlParser": true,
+    "entities": ["src/**/*.entity.ts", "dist/**/*.entity.js"]
+  }
