@@ -8,13 +8,14 @@ import {
   Param,
 } from '@nestjs/common';
 import { DeleteResult } from 'typeorm';
-import { AuthorDto } from '../models/author.dto';
 import { AuthorsService } from './authors.service';
 import { AuthorEntity } from './author.entity';
+import { AuthorDto } from '../models/author.dto';
 
 @Controller('authors')
 export class AuthorsController {
   constructor(private readonly authorService: AuthorsService) {}
+
   @Get()
   findAll(): Promise<AuthorEntity[]> {
     return this.authorService.findAll();
