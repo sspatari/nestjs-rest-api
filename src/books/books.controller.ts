@@ -10,7 +10,7 @@ import {
 import { DeleteResult } from 'typeorm';
 import { BooksService } from './books.service';
 import { BookEntity } from '../entities/book.entity';
-import { BookDto } from '../models/book.dto';
+import { BookDto } from '../dtos/book.dto';
 
 @Controller('books')
 export class BooksController {

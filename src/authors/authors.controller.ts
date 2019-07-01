@@ -9,8 +9,8 @@ import {
 } from '@nestjs/common';
 import { DeleteResult } from 'typeorm';
 import { AuthorsService } from './authors.service';
-import { AuthorEntity } from './author.entity';
-import { AuthorDto } from '../models/author.dto';
+import { AuthorEntity } from '../entities/author.entity';
+import { AuthorDto } from '../dtos/author.dto';
 
 @Controller('authors')
 export class AuthorsController {
