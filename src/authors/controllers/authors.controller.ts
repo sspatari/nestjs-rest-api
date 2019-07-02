@@ -8,7 +8,7 @@ import {
   Param,
 } from '@nestjs/common';
 import { DeleteResult } from 'typeorm';
-import { AuthorsService } from './authors.service';
+import { AuthorsService } from '../services/authors.service';
 import { AuthorEntity } from '../entities/author.entity';
 import { AuthorDto } from '../dtos/author.dto';
 

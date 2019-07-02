@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, DeleteResult } from 'typeorm';
 import { AuthorEntity } from '../entities/author.entity';
-import { AuthorDto } from 'src/dtos/author.dto';
+import { AuthorDto } from 'src/authors/dtos/author.dto';
 
 @Injectable()
 export class AuthorsService {

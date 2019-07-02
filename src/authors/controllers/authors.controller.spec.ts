@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { AuthorsController } from './authors.controller';
-import { AuthorsService } from './authors.service';
+import { AuthorsService } from '../services/authors.service';
 import { AuthorEntity } from '../entities/author.entity';
 
 describe('Authors Controller', () => {

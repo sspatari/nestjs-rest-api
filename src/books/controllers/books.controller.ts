@@ -8,7 +8,7 @@ import {
   Body,
 } from '@nestjs/common';
 import { DeleteResult } from 'typeorm';
-import { BooksService } from './books.service';
+import { BooksService } from '../services/books.service';
 import { BookEntity } from '../entities/book.entity';
 import { BookDto } from '../dtos/book.dto';
 

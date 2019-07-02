@@ -4,6 +4,6 @@
     "synchronize": true,
     "logging": true,
     "useNewUrlParser": true,
-    "entities": ["src/**/*.entity.ts", "dist/**/*.entity.js"],
-    "subscribers": ["src/**/*.subscriber.ts", "dist/**/*.subscriber.js"]
+    "entities": ["src/**/entities/*.entity.ts", "dist/**/entities/*.entity.js"],
+    "subscribers": ["src/**/subscribers/*.subscriber.ts", "dist/**/subscribers/*.subscriber.js"]
   }
