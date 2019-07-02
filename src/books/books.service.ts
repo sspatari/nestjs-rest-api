@@ -26,8 +26,9 @@ export class BooksService {
   }
 
   async update(id: string, data: Partial<BookDto>): Promise<BookEntity> {
-    await this.bookRepository.update(id, data);
-    return await this.bookRepository.findOne(id);
+    let book = await this.bookRepository.findOne(id);
+    book = { ...book, ...data };
+    return await this.bookRepository.save(book);
   }
 
   async delete(id: string): Promise<DeleteResult> {

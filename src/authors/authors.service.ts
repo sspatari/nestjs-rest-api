@@ -26,8 +26,9 @@ export class AuthorsService {
   }
 
   async update(id: string, data: Partial<AuthorDto>): Promise<AuthorEntity> {
-    await this.authorRepository.update(id, data);
-    return await this.authorRepository.findOne(id);
+    let author = await this.authorRepository.findOne(id);
+    author = { ...author, ...data };
+    return await this.authorRepository.save(author);
   }
 
   async delete(id: string): Promise<DeleteResult> {
