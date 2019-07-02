@@ -1,18 +1,10 @@
-import {
-  Entity,
-  ObjectIdColumn,
-  Column,
-  CreateDateColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Entity, Column } from 'typeorm';
+import { GenericEntity } from './generic.entity';
 
 @Entity('book')
-export class BookEntity {
-  @ObjectIdColumn() id: string;
+export class BookEntity extends GenericEntity {
   @Column('text') title: string;
   @Column('text') author: string;
   @Column('text') iban: string;
   @Column('datetime') publishedAt: Date;
-  @CreateDateColumn() createdAt: Date;
-  @UpdateDateColumn() updatedAt: Date;
 }
