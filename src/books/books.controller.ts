@@ -14,21 +14,21 @@ import { BookDto } from '../dtos/book.dto';
 
 @Controller('books')
 export class BooksController {
-  constructor(private readonly bookService: BooksService) {}
+  constructor(private readonly booksService: BooksService) {}
 
   @Get()
   findAll(): Promise<BookEntity[]> {
-    return this.bookService.findAll();
+    return this.booksService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string): Promise<BookEntity> {
-    return this.bookService.findOne(id);
+    return this.booksService.findOne(id);
   }
 
   @Post()
   create(@Body() bookDto: BookDto): Promise<BookEntity> {
-    return this.bookService.create(bookDto);
+    return this.booksService.create(bookDto);
   }
 
   @Put(':id')
@@ -36,11 +36,11 @@ export class BooksController {
     @Param('id') id: string,
     @Body() bookDto: Partial<BookDto>,
   ): Promise<BookEntity> {
-    return this.bookService.update(id, bookDto);
+    return this.booksService.update(id, bookDto);
   }
 
   @Delete(':id')
   delete(@Param('id') id: string): Promise<DeleteResult> {
-    return this.bookService.delete(id);
+    return this.booksService.delete(id);
   }
 }

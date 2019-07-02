@@ -14,21 +14,21 @@ import { AuthorDto } from '../dtos/author.dto';
 
 @Controller('authors')
 export class AuthorsController {
-  constructor(private readonly authorService: AuthorsService) {}
+  constructor(private readonly authorsService: AuthorsService) {}
 
   @Get()
   findAll(): Promise<AuthorEntity[]> {
-    return this.authorService.findAll();
+    return this.authorsService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string): Promise<AuthorEntity> {
-    return this.authorService.findOne(id);
+    return this.authorsService.findOne(id);
   }
 
   @Post()
   create(@Body() authorDto: AuthorDto): Promise<AuthorEntity> {
-    return this.authorService.create(authorDto);
+    return this.authorsService.create(authorDto);
   }
 
   @Put(':id')
@@ -36,11 +36,11 @@ export class AuthorsController {
     @Param('id') id: string,
     @Body() authorDto: Partial<AuthorDto>,
   ): Promise<AuthorEntity> {
-    return this.authorService.update(id, authorDto);
+    return this.authorsService.update(id, authorDto);
   }
 
   @Delete(':id')
   delete(@Param('id') id: string): Promise<DeleteResult> {
-    return this.authorService.delete(id);
+    return this.authorsService.delete(id);
   }
 }
