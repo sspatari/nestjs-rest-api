@@ -40,7 +40,7 @@ export class AuthorsController {
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string): Promise<DeleteResult> {
+  delete(@Param('id') id: string): Promise<AuthorEntity> {
     return this.authorsService.delete(id);
   }
 }

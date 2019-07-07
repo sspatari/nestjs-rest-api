@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, DeleteResult } from 'typeorm';
 import { AuthorEntity } from '../entities/author.entity';
@@ -16,7 +16,11 @@ export class AuthorsService {
   }
 
   async findOne(id: string): Promise<AuthorEntity> {
-    return await this.authorRepository.findOne(id);
+    const author = await this.authorRepository.findOne(id);
+    if (!author) {
+      throw new HttpException('Not found', HttpStatus.NOT_FOUND);
+    }
+    return author;
   }
 
   async create(data: AuthorDto): Promise<AuthorEntity> {
@@ -27,11 +31,19 @@ export class AuthorsService {
 
   async update(id: string, data: Partial<AuthorDto>): Promise<AuthorEntity> {
     let author = await this.authorRepository.findOne(id);
+    if (!author) {
+      throw new HttpException('Not found', HttpStatus.NOT_FOUND);
+    }
     author = { ...author, ...data };
     return await this.authorRepository.save(author);
   }
 
-  async delete(id: string): Promise<DeleteResult> {
-    return await this.authorRepository.delete(id);
+  async delete(id: string): Promise<AuthorEntity> {
+    const author = await this.authorRepository.findOne(id);
+    if (!author) {
+      throw new HttpException('Not found', HttpStatus.NOT_FOUND);
+    }
+    await this.authorRepository.delete(id);
+    return author;
   }
 }

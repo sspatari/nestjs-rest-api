@@ -40,7 +40,7 @@ export class BooksController {
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string): Promise<DeleteResult> {
+  delete(@Param('id') id: string): Promise<BookEntity> {
     return this.booksService.delete(id);
   }
 }
