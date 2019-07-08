@@ -6,14 +6,16 @@ import {
   Delete,
   Param,
   Body,
+  Logger,
 } from '@nestjs/common';
-import { DeleteResult } from 'typeorm';
 import { BooksService } from '../services/books.service';
 import { BookEntity } from '../entities/book.entity';
 import { BookDto } from '../dtos/book.dto';
 
 @Controller('books')
 export class BooksController {
+  private logger = new Logger('BooksController');
+
   constructor(private readonly booksService: BooksService) {}
 
   @Get()
@@ -28,6 +30,7 @@ export class BooksController {
 
   @Post()
   create(@Body() bookDto: BookDto): Promise<BookEntity> {
+    this.logger.log(JSON.stringify(bookDto));
     return this.booksService.create(bookDto);
   }
 
@@ -36,6 +39,7 @@ export class BooksController {
     @Param('id') id: string,
     @Body() bookDto: Partial<BookDto>,
   ): Promise<BookEntity> {
+    this.logger.log(JSON.stringify(bookDto));
     return this.booksService.update(id, bookDto);
   }
 
