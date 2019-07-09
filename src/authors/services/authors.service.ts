@@ -1,8 +1,9 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, DeleteResult } from 'typeorm';
+import { Repository } from 'typeorm';
 import { AuthorEntity } from '../entities/author.entity';
-import { AuthorDto } from 'src/authors/dtos/author.dto';
+import { CreateAuthorDto } from '../dtos/create-author.dto';
+import { UpdateAuthorDto } from '../dtos/update-author.dto';
 
 @Injectable()
 export class AuthorsService {
@@ -23,13 +24,13 @@ export class AuthorsService {
     return author;
   }
 
-  async create(data: AuthorDto): Promise<AuthorEntity> {
+  async create(data: CreateAuthorDto): Promise<AuthorEntity> {
     const author = await this.authorRepository.create(data);
     await this.authorRepository.save(author);
     return author;
   }
 
-  async update(id: string, data: Partial<AuthorDto>): Promise<AuthorEntity> {
+  async update(id: string, data: UpdateAuthorDto): Promise<AuthorEntity> {
     let author = await this.authorRepository.findOne(id);
     if (!author) {
       throw new HttpException('Not found', HttpStatus.NOT_FOUND);
