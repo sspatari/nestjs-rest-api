@@ -22,9 +22,9 @@ export class UpdateAuthorDto {
   readonly lastName: string;
 
   @ApiModelProperty({
-    type: 'string',
+    type: String,
     format: 'date-time',
-    example: '2019-07-09 00:00:00.000Z',
+    example: '2019-07-09T00:00:00.000Z',
   })
   @IsOptional()
   @IsDateString()
