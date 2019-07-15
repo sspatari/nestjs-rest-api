@@ -14,12 +14,12 @@ export class UpdateBookDto {
   @IsOptional()
   @IsString()
   @MinLength(2)
-  readonly title: string;
+  readonly title?: string;
 
   @ApiModelProperty({ format: 'ObjectID', example: '5d23fd872799eccc40c5107d' })
   @IsOptional()
   @IsMongoId()
-  readonly authorId: string;
+  readonly authorId?: string;
 
   @ApiModelProperty({
     maxLength: 34,
@@ -29,7 +29,7 @@ export class UpdateBookDto {
   @IsOptional()
   @IsString()
   @MaxLength(34)
-  readonly iban: string;
+  readonly iban?: string;
 
   @ApiModelProperty({
     type: String,
@@ -38,5 +38,5 @@ export class UpdateBookDto {
   })
   @IsOptional()
   @IsDateString()
-  readonly publishedAt: Date;
+  readonly publishedAt?: Date;
 }

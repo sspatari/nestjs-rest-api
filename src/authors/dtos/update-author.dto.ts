@@ -9,7 +9,7 @@ export class UpdateAuthorDto {
   @IsOptional()
   @IsString()
   @MinLength(2)
-  readonly firstName: string;
+  readonly firstName?: string;
 
   @ApiModelProperty({
     minLength: 2,
@@ -19,7 +19,7 @@ export class UpdateAuthorDto {
   @IsOptional()
   @IsString()
   @MinLength(2)
-  readonly lastName: string;
+  readonly lastName?: string;
 
   @ApiModelProperty({
     type: String,
@@ -28,5 +28,5 @@ export class UpdateAuthorDto {
   })
   @IsOptional()
   @IsDateString()
-  readonly birthday: Date;
+  readonly birthday?: Date;
 }
