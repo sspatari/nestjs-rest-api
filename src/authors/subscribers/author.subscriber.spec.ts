@@ -1,7 +1,8 @@
+import { expect } from 'chai';
 import { AuthorSubscriber } from './author.subscriber';
 
 describe('AuthorSubscriber', () => {
-  it('should be defined', () => {
-    expect(new AuthorSubscriber()).toBeDefined();
+  it('should exist', () => {
+    expect(new AuthorSubscriber()).to.exist;
   });
 });
